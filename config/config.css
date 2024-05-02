@@ -1,0 +1,26 @@
+.body{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+header{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+.btn{
+    background-color: rgba(231, 193, 143, 0.445);
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+}
+.btn:hover{
+    border: 1px solid rgba(236, 112, 112, 0.164);
+    box-shadow: 5px 5px 10px 0px rgba(236, 112, 112, 0.5);
+}
