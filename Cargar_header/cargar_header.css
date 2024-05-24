@@ -20,6 +20,7 @@ header{
     width: 250px;
 }
 .carrito{
+    cursor: pointer;
     width: 3.5rem;
     height: 2.5rem;
     border-radius: 2rem;
@@ -28,11 +29,8 @@ header{
     align-items: center;
     justify-content: center;
 }
-.carrito:hover{
-    background-color: #cccccc;
-    cursor: pointer;
-}
 .sesion{
+    cursor: pointer;
     border-radius: 2rem;
     border: 1px solid #636363;
     padding: 0.2rem;

@@ -18,8 +18,8 @@
 
 async function obtenerProductos() {
     try {
-      let response = await fetch('https://fakestoreapi.com/products');
-      let data = await response.json();
+      const response = await fetch('https://fakestoreapi.com/products');
+      const data = await response.json();
       Cargar_productos(data);
     } catch (error) {
       console.log("Error al obtener los productos:", error);
@@ -29,5 +29,5 @@ async function obtenerProductos() {
 obtenerProductos();
 
 Cargar_categorias();
-Cargar_header(obtenerProductos);
+Cargar_header();
 Cargar_footer();

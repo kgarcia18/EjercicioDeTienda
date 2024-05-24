@@ -1,58 +1,68 @@
-async function Cargar_carrito(id_carrito){
-    try{
-        const respuesta = await fetch(`https://fakestoreapi.com/carts/${id_carrito}`);
-        const datos = await respuesta.json();
-        return datos;
-    }catch{
-        console.log("Error de la api");
-        return [];
-    }
-}
-function itemProducto(img, precio) {
-    const div_item_cart = document.createElement('div');
-    div_item_cart.className = "item-cart";
-    
-    const caja_img = document.createElement('div');
-    caja_img.classList = "caja_img";
-    const imagen_cart = document.createElement('img');
-    imagen_cart.src = img;
-    caja_img.appendChild(imagen_cart);
-
-    const cart_precio = document.createElement('p');
-    cart_precio.textContent = "Q " + precio;
-
-    const btn_eliminar = document.createElement("div");
-    btn_eliminar.classList = "btn-eliminar";
-    btn_eliminar.textContent = "Eliminar";
-
-    div_item_cart.appendChild(caja_img);
-    div_item_cart.appendChild(cart_precio);
-    div_item_cart.appendChild(btn_eliminar);
-
-    return div_item_cart;
-}
-
-async function Mostrar_carrito(lista_productos) {
+async function Cargar_carrito() {
     try {
-        const inventario = await lista_productos;
-        const carrito_usuario = await Cargar_carrito(1);
-        const usuario = carrito_usuario.userId;
-        const fecha = carrito_usuario.date;
-        const productos = carrito_usuario.products;
+        // Fetch product data from API
+        let respuesta = await fetch('https://fakestoreapi.com/products?limit=2');
+        let datos = await respuesta.json();
 
-        const div_carrito_ventana = document.querySelector(".ventana-carrito");
+        // Select the container for the cart items
+        let carritoItems = document.getElementById("carritoItems");
+        
+        // Clear current content
+        carritoItems.innerHTML = '';    
 
-        productos.forEach(element => {
-            inventario.forEach((producto) => {
-                if (producto.id == element.productId) {
-                    div_carrito_ventana.appendChild(itemProducto(producto.image, producto.price));
-                }
-            });
+        // Create and append items to the container
+        datos.forEach(item => {
+            let itemDiv = document.createElement('div');
+            itemDiv.className = "carrito-item";
+            
+            // Use template literals for the inner HTML of the item div
+            itemDiv.innerHTML = `
+                <div class="box_img1">
+                    <img src="${item.image}" alt="${item.title}">
+                </div>
+                <div class="caja_descri">
+                    <span class="name">${item.title}</span>
+                    <span class="price">Q${item.price}</span>
+                    <div class="eliminar">Eliminar</div>
+                </div>
+            `;
+            carritoItems.appendChild(itemDiv);
         });
 
-    } catch {
-        console.log("error al mostrar el carro");
+        console.log("Datos cargados correctamente en el carrito");
+    } catch (error) {
+        console.log("Error al cargar el carrito:", error);
     }
 }
 
-export { Mostrar_carrito }
+function inicializarCarritoModal() {
+    // Get the modal element
+    let modal = document.getElementById("carritoModal");
+
+    // Show the modal when the mouse enters the cart icon
+    document.querySelector(".carrito").addEventListener("mouseenter", function() {
+        Cargar_carrito();  // Load cart content
+        modal.style.display = "block";
+    });
+
+    // Hide the modal when the mouse leaves the cart icon
+    document.querySelector(".carrito").addEventListener("mouseleave", function() {
+        modal.style.display = "none";
+    });
+
+    // Close the modal when clicking outside the modal content
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Event listener for delete button
+    modal.addEventListener("click", function(event) {
+        if (event.target && event.target.classList.contains("eliminar")) {
+            event.target.closest(".carrito-item").remove(); // Remove the item's container
+        }
+    });
+}
+
+export { Cargar_carrito, inicializarCarritoModal };

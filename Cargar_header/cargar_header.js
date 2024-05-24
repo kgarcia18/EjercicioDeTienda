@@ -1,6 +1,6 @@
-import { Mostrar_carrito } from "./Cargar_carrito/cargar_carrito.js";
+import { inicializarCarritoModal } from "./Cargar_carrito/cargar_carrito.js";
 
-function Cargar_header(lista_productos,usuario){
+function Cargar_header() {
     let header = document.querySelector("header");
 
     header.innerHTML = `
@@ -8,11 +8,18 @@ function Cargar_header(lista_productos,usuario){
         <div class="busqueda"><input type="text" placeholder="Buscar... " id="search-box"></div>
         <div class="carrito">
             🛒
-            <div class="ventana_carrito"></div>
+            <!-- Modal -->
+            <div id="carritoModal" class="modal">
+                <div class="modal-content">
+                    <h4>Compras...</h4>
+                    <div id="carritoItems"></div>
+                </div>
+            </div>
         </div>
         <div class="sesion"><img src="https://github.com/kgarcia18/img/blob/main/img/sesion1.png?raw=true" alt=""></div>
     `;
-    Mostrar_carrito(lista_productos);
+
+    inicializarCarritoModal();
 }
 
-export{Cargar_header}
+export { Cargar_header };
