@@ -14,14 +14,13 @@ async function Cargar_carrito() {
         datos.forEach(item => {
             let itemDiv = document.createElement('div');
             itemDiv.className = "carrito-item";
-            
             // Use template literals for the inner HTML of the item div
             itemDiv.innerHTML = `
                 <div class="box_img1">
                     <img src="${item.image}" alt="${item.title}">
                 </div>
-                <div class="caja_descri">
-                    <span class="name">${item.title}</span>
+                <div class="caja_descri1">
+                    <span class="name1">${item.title}</span>
                     <span class="price">Q${item.price}</span>
                     <div class="eliminar">Eliminar</div>
                 </div>
