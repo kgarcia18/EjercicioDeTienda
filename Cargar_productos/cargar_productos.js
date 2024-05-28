@@ -22,4 +22,4 @@ function Cargar_productos(products_list){
     });
 }
 
-export { Cargar_productos }
+export {Cargar_productos}
