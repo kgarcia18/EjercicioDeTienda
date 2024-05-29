@@ -1,3 +1,4 @@
+/* Estilos básicos para la ventana modal de inicio de sesión */
 .modal1 {
     display: none; /* Inicialmente oculta */
     position: fixed;
@@ -8,8 +9,7 @@
     height: 100%;
     overflow: auto;
 }
-  
-    
+
 .modal-content1 {
     margin-top: 6%;
     margin-left: 70%;
@@ -21,12 +21,9 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    animation: fadeIn 0.5s; /* Animación de entrada */
 }
-.modal-content1 h2{
-    margin-bottom: 2rem;
-}
-.close {
+
+.close1 {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -34,11 +31,10 @@
     cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
+.close1:hover,
+.close1:focus {
+    color: black;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .login-form {
@@ -64,7 +60,7 @@
 }
 
 .login-form button:hover {
-    background-color: #45a049;
+    background-color: #348a38;
 }
 .password-container{
     display: flex;

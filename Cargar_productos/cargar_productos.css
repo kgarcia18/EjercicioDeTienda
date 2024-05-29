@@ -48,6 +48,7 @@
     justify-content: center;
 }
 .buy_btn:hover{
+    cursor: pointer;
     border: 1px solid rgba(236, 112, 112, 0.164);
     box-shadow: 5px 5px 10px 0px rgba(236, 112, 112, 0.5);
 }

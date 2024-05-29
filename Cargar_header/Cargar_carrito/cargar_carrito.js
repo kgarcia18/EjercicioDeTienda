@@ -1,67 +1,60 @@
-async function Cargar_carrito() {
-    try {
-        // Fetch product data from API
-        let respuesta = await fetch('https://fakestoreapi.com/products?limit=2');
-        let datos = await respuesta.json();
-
-        // Select the container for the cart items
-        let carritoItems = document.getElementById("carritoItems");
-        
-        // Clear current content
-        carritoItems.innerHTML = '';    
-
-        // Create and append items to the container
-        datos.forEach(item => {
-            let itemDiv = document.createElement('div');
-            itemDiv.className = "carrito-item";
-            // Use template literals for the inner HTML of the item div
-            itemDiv.innerHTML = `
-                <div class="box_img1">
-                    <img src="${item.image}" alt="${item.title}">
-                </div>
-                <div class="caja_descri1">
-                    <span class="name1">${item.title}</span>
-                    <span class="price">Q${item.price}</span>
-                    <div class="eliminar">Eliminar</div>
-                </div>
-            `;
-            carritoItems.appendChild(itemDiv);
-        });
-
-        console.log("Datos cargados correctamente en el carrito");
-    } catch (error) {
-        console.log("Error al cargar el carrito:", error);
-    }
-}
-
 function inicializarCarritoModal() {
-    // Get the modal element
-    let modal = document.getElementById("carritoModal");
+    const carritoModal = document.createElement('div');
+    carritoModal.id = 'carritoModal';
+    carritoModal.classList.add('modal');
 
-    // Show the modal when the mouse enters the cart icon
-    document.querySelector(".carrito").addEventListener("mouseenter", function() {
-        Cargar_carrito();  // Load cart content
-        modal.style.display = "block";
-    });
+    carritoModal.innerHTML = `
+        <div class="modal-content">
+        <span id="cerrarCarrito" class="close">&times;</span>
+            <h2>Comprar Productos</h2>
+            <div id="carritoContent"></div>
+        </div>
+    `;
 
-    // Hide the modal when the mouse leaves the cart icon
-    document.querySelector(".carrito").addEventListener("mouseleave", function() {
-        modal.style.display = "none";
-    });
+    document.body.appendChild(carritoModal);
 
-    // Close the modal when clicking outside the modal content
-    window.addEventListener("click", function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
-    // Event listener for delete button
-    modal.addEventListener("click", function(event) {
-        if (event.target && event.target.classList.contains("eliminar")) {
-            event.target.closest(".carrito-item").remove(); // Remove the item's container
-        }
+    document.getElementById('cerrarCarrito').addEventListener('click', () => {
+        carritoModal.style.display = 'none';
     });
 }
 
-export { Cargar_carrito, inicializarCarritoModal };
+function mostrarModalCarrito() {
+    const carritoModal = document.getElementById('carritoModal');
+    fetch('https://fakestoreapi.com/products?limit=2')
+        .then(res => res.json())
+        .then(products => {
+            const carritoContent = document.getElementById('carritoContent');
+            carritoContent.innerHTML = ''; // Clear previous content
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('producto');
+
+                const img = document.createElement('img');
+                img.src = product.image;
+                img.alt = product.title;
+
+                const title = document.createElement('h3');
+                title.innerText = product.title;
+
+                const price = document.createElement('p');
+                price.innerText = `Q${product.price}`;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Eliminar';
+                deleteButton.addEventListener('click', () => {
+                    productDiv.remove();
+                });
+
+                productDiv.appendChild(img);
+                productDiv.appendChild(title);
+                productDiv.appendChild(price);
+                productDiv.appendChild(deleteButton);
+
+                carritoContent.appendChild(productDiv);
+            });
+
+            carritoModal.style.display = 'block'; // Show the modal
+        });
+}
+
+export { inicializarCarritoModal, mostrarModalCarrito };

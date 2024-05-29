@@ -2,8 +2,8 @@ export function cargarSesion() {
     const modalHTML = `
         <div id="loginModal" class="modal1">
             <div class="modal-content1">
-                <span class="close">&times;</span>
-                <h2>Inicion de Sesion</h2>
+                <span class="close1">&times;</span>
+                <h2>Inicio de Sesión</h2>
                 <form class="login-form" id="login-form">
                     <input type="text" id="username" placeholder="Username" required>
                     <input type="email" id="email" placeholder="Email" required>
@@ -21,16 +21,10 @@ export function cargarSesion() {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
     const modal = document.getElementById('loginModal');
-    const closeBtn = document.getElementsByClassName('close')[0];
+    const closeBtn = document.getElementsByClassName('close1')[0];
 
     closeBtn.onclick = function() {
         modal.style.display = "none";
-    };
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
     };
 
     const togglePassword = document.getElementById('togglePassword');
@@ -52,7 +46,7 @@ export function cargarSesion() {
         fetch('https://fakestoreapi.com/users')
             .then(res => res.json())
             .then(users => {
-                const user = users.find(user => user.username === username && user.email === email && user.password === password);
+                const user = users.find(user => user.sername === username && user.email === email && user.password === password);
                 if (user) {
                     document.getElementById('login-message').textContent = 'Login successful!';
                     document.getElementById('login-message').style.color = 'green';
@@ -61,7 +55,7 @@ export function cargarSesion() {
                     sesionIcon.src = 'https://github.com/kgarcia18/img/blob/main/img/sesion_iniciada.png?raw=true';
                     sesionIcon.alt = 'Sesión Iniciada';
 
-                    setTimeout(() => { modal.style.display = "none"; }, 2000);
+                    setTimeout(() => { modal.style.display = "none"; }, 20000);
                 } else {
                     document.getElementById('login-message').textContent = 'Invalid credentials, please try again.';
                     document.getElementById('login-message').style.color = 'red';
