@@ -8,16 +8,18 @@
   height: 100%;
   overflow: auto;
 }
-
-  
 .modal-content {
   margin-top: 6%;
-  margin-left: 59%;
+  margin-left: 50%;
   background-color: #fffcfc;
   border: 1px solid #888;
   width: 20rem;
   height: 20rem;
   text-align: center;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s; /* Animación de entrada */
 }
 
 .carrito-item {

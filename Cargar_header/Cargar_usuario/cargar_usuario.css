@@ -1,0 +1,85 @@
+.modal1 {
+    display: none; /* Inicialmente oculta */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+  
+    
+.modal-content1 {
+    margin-top: 6%;
+    margin-left: 70%;
+    background-color: #fffcfc;
+    border: 1px solid #888;
+    width: 20rem;
+    height: 20rem;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s; /* Animación de entrada */
+}
+.modal-content1 h2{
+    margin-bottom: 2rem;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+.password-container{
+    display: flex;
+    justify-content: space-between;
+}
+#password{
+    width: 75%;
+}
+.toggle-password{
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
