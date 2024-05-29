@@ -1,5 +1,5 @@
-    import { Cargar_productos } from "/Cargar_productos/cargar_productos.js";
-    import { Cargar_categorias } from "/Cargar_categorias/cargar_categorias.js";
+    import { cargar_productos } from "/Cargar_productos/cargar_productos.js";
+    import { cargar_categorias } from "/Cargar_categorias/cargar_categorias.js";
     import { Cargar_header } from "../Cargar_header/cargar_header.js";
     import { Cargar_footer } from "../Cargar_footer/cargar_footer.js";
 
@@ -20,7 +20,7 @@ async function obtenerProductos() {
     try {
       const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
-      Cargar_productos(data);
+      cargar_productos(data);
     } catch (error) {
       console.log("Error al obtener los productos:", error);
     }
@@ -28,6 +28,6 @@ async function obtenerProductos() {
 
 obtenerProductos();
 
-Cargar_categorias();
+cargar_categorias();
 Cargar_header();
 Cargar_footer();

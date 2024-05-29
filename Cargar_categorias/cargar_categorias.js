@@ -1,4 +1,4 @@
-function Cargar_categorias(){
+function cargar_categorias(){
 
     fetch('https://fakestoreapi.com/products/categories')
             .then(res=>res.json())
@@ -23,4 +23,4 @@ function imprimir_categorias(lista_categorias){
 
 }
 
-export{Cargar_categorias}
+export{cargar_categorias}
