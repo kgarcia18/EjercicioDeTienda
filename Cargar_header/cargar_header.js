@@ -6,7 +6,7 @@ function Cargar_header() {
 
     header.innerHTML = `
         <div class="logo"><img src="https://github.com/kgarcia18/img/blob/main/img/tienda.png?raw=true" alt=""></div>
-        <div class="busqueda"><input type="text" placeholder="Buscar... " id="search-box"></div>
+        <div class="busqueda"><input type="text" placeholder="🔎 Buscar... " id="search-box"></div>
         <div class="carrito">🛒</div>
         <div class="sesion"><img src="https://github.com/kgarcia18/img/blob/main/img/sesion1.png?raw=true" alt=""></div>
     `;

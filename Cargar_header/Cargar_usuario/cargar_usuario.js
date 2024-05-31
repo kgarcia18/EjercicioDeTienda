@@ -46,7 +46,7 @@ export function cargarSesion() {
         fetch('https://fakestoreapi.com/users')
             .then(res => res.json())
             .then(users => {
-                const user = users.find(user => user.sername === username && user.email === email && user.password === password);
+                const user = users.find(user => user.username === username && user.email === email && user.password === password);
                 if (user) {
                     document.getElementById('login-message').textContent = 'Login successful!';
                     document.getElementById('login-message').style.color = 'green';
@@ -55,7 +55,12 @@ export function cargarSesion() {
                     sesionIcon.src = 'https://github.com/kgarcia18/img/blob/main/img/sesion_iniciada.png?raw=true';
                     sesionIcon.alt = 'Sesión Iniciada';
 
-                    setTimeout(() => { modal.style.display = "none"; }, 20000);
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        loginForm.reset(); // Limpiar el formulario después de un inicio de sesión exitoso
+                    }, 2000); // Cambio a 2000 milisegundos para cerrar el modal más rápido
+
+
                 } else {
                     document.getElementById('login-message').textContent = 'Invalid credentials, please try again.';
                     document.getElementById('login-message').style.color = 'red';

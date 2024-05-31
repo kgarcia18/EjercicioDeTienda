@@ -1,17 +1,141 @@
-footer{
+footer {
     margin-top: 2rem;
     border-top: 1px solid rgb(211, 211, 211);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    padding: 1rem;
 }
-.redes_sociales{
+
+footer .info, footer .contactos, footer .redes_sociales {
+    flex: 1 1 30%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.redes_sociales {
     padding: 0.2rem;
-    width: 10rem;;
+    width: 10rem;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
-.redes_sociales img{
-    width: 100%;
-    height: 100%;
+
+.redes_sociales img {
+    max-width: 100%;
+    height: auto;
     object-fit: contain;
 }
+
+/* Media Queries */
+
+@media (max-width: 1920px) {
+    footer{
+        height: 10rem;
+        font-size: 1rem;
+    }
+    .redes_sociales {
+        padding: 0.2rem;
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .redes_sociales img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 1366px) {
+    footer .info, footer .contactos, footer .redes_sociales {
+        flex: 1 1 30%;
+    }
+}
+
+@media (max-width: 1200px) {
+    footer .info, footer .contactos, footer .redes_sociales {
+        flex: 1 1 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        height: 7rem;
+    }
+
+    .info, .contactos{
+        padding-top: 1rem;
+    }
+
+    footer .info, footer .contactos, footer{
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+
+    .redes_sociales {
+        height: 7rem;   
+        overflow: hidden;
+    }
+    
+    .redes_sociales img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 10px;
+        height: 4rem;
+    }
+    footer div{
+        margin-bottom: 0.3rem;
+    }
+    .redes_sociales {
+        height: 1rem;   
+        overflow: hidden;
+    }
+    
+    .redes_sociales img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 375px) {
+    footer {
+        padding: 0;
+        flex-direction: row;
+        align-items: center;
+        font-size: 10px;
+        height: 4rem;
+    }
+    footer div{
+        margin-bottom: 0.3rem;
+    }
+    .redes_sociales {
+        height: 3rem;   
+        overflow: hidden;
+    }
+    
+    .redes_sociales img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
