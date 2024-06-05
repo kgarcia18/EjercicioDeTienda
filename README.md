@@ -14,4 +14,4 @@ https://fakestoreapi.com/
 
 ### Página:
 
-https://kgarcia18.github.io/EjercicioDeTienda/
+https://kgarcia18.github.io/TiendaAPI_2024/
