@@ -1,7 +1,6 @@
 .body{
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 header{
     width: 100%;

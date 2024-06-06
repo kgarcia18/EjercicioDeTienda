@@ -1,8 +1,8 @@
-function cargar_productos(products_list){
+function cargar_productos(products_list) {
     let div_product_list = document.querySelector("#div_product_list");
+    div_product_list.innerHTML = '';  // Limpiar la lista de productos antes de cargar nuevos
 
     products_list.forEach(product => {
-        
         let div = document.createElement("div");
         div.classList = "item_product";
 
@@ -22,4 +22,4 @@ function cargar_productos(products_list){
     });
 }
 
-export {cargar_productos}
+export { cargar_productos };
