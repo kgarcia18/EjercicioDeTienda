@@ -24,3 +24,58 @@ header{
     border: 1px solid rgba(236, 112, 112, 0.164);
     box-shadow: 5px 5px 10px 0px rgba(236, 112, 112, 0.5);
 }
+
+@media only screen and (max-width: 375px) {
+    .body{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: none;
+    }
+    #div_summery_description{
+        grid-row: 1/2;
+        margin-bottom: 2rem;
+    }
+    #div_product_list{
+        padding: 1rem;
+        grid-row: 2/3;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .body{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: none;
+    }
+    #div_summery_description{
+        grid-row: 1/2;
+        margin-bottom: 2rem;
+    }
+    #div_product_list{
+        padding: 1rem;
+        grid-row: 2/3;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #div_product_list{
+        padding: 1rem;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    #div_product_list{
+        padding: 1rem;
+    }
+}
+@media only screen and (max-width: 1366px) {
+    #div_product_list{
+        padding: 1rem;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .body{
+        display: grid;
+        grid-template-columns: 10% 90%;
+    }
+    #div_product_list{
+        padding: 1em;
+    }
+}
